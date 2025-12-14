@@ -1,3 +1,24 @@
 spring:
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  config:
+    import: env.properties
   application:
     name: expense
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable&serverTimezone=Asia/Ho_Chi_Minh
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 100
+      minimum-idle: 15
+      idle-timeout: 300000 # 5 minutes
+      max-lifetime: 1800000 # 30 minutes
+      connection-timeout: 30000 # 30 seconds
+jwt:
+  secret: '${SIGNER_KEY}'
+  valid-duration: ${VALID_DURATION}
+  refreshable-duration: ${REFRESHABLE_DURATION}

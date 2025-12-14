@@ -1,0 +1,19 @@
+services:
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: expense
+      POSTGRES_PASSWORD: expense123
+      POSTGRES_DB: expense_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/MAJOR/docker
+    networks:
+      - default
+
+volumes:
+  db_data:
+networks:
+  default:
+    driver: bridge
