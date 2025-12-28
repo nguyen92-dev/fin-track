@@ -18,19 +18,19 @@ import top.nguyennd.restsqlbackend.abstraction.pagedlist.FilterReqDto;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 public class UserController implements UsersContract {
-    IUserService userService;
+  IUserService userService;
 
-    @Override
-    public ResponseEntity<BaseResponse<PagedModel<UserResDto>>> getPageList(FilterReqDto filter, Pageable pageable) {
-        PagedModel<UserResDto> result = new PagedModel<>(userService.getPagedList(filter, pageable));
-        var response = BaseResponse.buildSuccess(result);
-        return ResponseEntity.ok(response);
-    }
+  @Override
+  public ResponseEntity<BaseResponse<PagedModel<UserResDto>>> getPageList(FilterReqDto filter, Pageable pageable, Boolean isPaged) {
+    PagedModel<UserResDto> result = new PagedModel<>(userService.getPagedList(filter, pageable, isPaged));
+    var response = BaseResponse.buildSuccess(result);
+    return ResponseEntity.ok(response);
+  }
 
-    @Override
-    public ResponseEntity<BaseResponse<UserResDto>> createUser(UserReqDto reqDto) {
-        UserResDto result = userService.createUser(reqDto);
-        var response = BaseResponse.buildSuccess(result);
-        return ResponseEntity.ok(response);
-    }
+  @Override
+  public ResponseEntity<BaseResponse<UserResDto>> createUser(UserReqDto reqDto) {
+    UserResDto result = userService.createUser(reqDto);
+    var response = BaseResponse.buildSuccess(result);
+    return ResponseEntity.ok(response);
+  }
 }

@@ -1,4 +1,4 @@
-package top.nguyennd.expense.users.entity;
+package top.nguyennd.expense.users.entities;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -24,13 +24,13 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class AppRole extends AbstractEntity {
-    @Column(name = "role_name")
-    String name;
+  @Column(name = "role_name")
+  String name;
 
-    @Column(name = "description")
-    String description;
+  @Column(name = "description")
+  String description;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            mappedBy = "role")
-    List<AppUser> users;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+      mappedBy = "role")
+  List<AppUser> users;
 }

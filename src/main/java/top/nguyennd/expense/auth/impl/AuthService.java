@@ -18,8 +18,8 @@ import top.nguyennd.expense.auth.IAuthService;
 import top.nguyennd.expense.auth.dto.LogInReqDto;
 import top.nguyennd.expense.auth.dto.LogInResDto;
 import top.nguyennd.expense.users.AppUserRepository;
-import top.nguyennd.expense.users.entity.AppRole;
-import top.nguyennd.expense.users.entity.AppUser;
+import top.nguyennd.expense.users.entities.AppRole;
+import top.nguyennd.expense.users.entities.AppUser;
 import top.nguyennd.restsqlbackend.abstraction.common.ErrorStatus;
 import top.nguyennd.restsqlbackend.abstraction.exception.BusinessException;
 

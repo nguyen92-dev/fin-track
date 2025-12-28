@@ -1,4 +1,4 @@
-package top.nguyennd.expense.users.entity;
+package top.nguyennd.expense.users.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,22 +24,22 @@ import java.time.LocalDateTime;
 @SuperBuilder
 @NoArgsConstructor
 public class AppUser extends AbstractEntity {
-    @Column(name = "username", unique = true, length = 50)
-    String username;
+  @Column(name = "username", unique = true, length = 50)
+  String username;
 
-    @Column(name = "password")
-    String password;
+  @Column(name = "password")
+  String password;
 
-    @Column(name = "email", unique = true, length = 100)
-    String email;
+  @Column(name = "email", unique = true, length = 100)
+  String email;
 
-    @Column(name = "full_name", length = 100)
-    String fullName;
+  @Column(name = "full_name", length = 100)
+  String fullName;
 
-    @Column(name = "deleted_at")
-    LocalDateTime deletedAt;
+  @Column(name = "deleted_at")
+  LocalDateTime deletedAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    AppRole role;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "role_id")
+  AppRole role;
 }

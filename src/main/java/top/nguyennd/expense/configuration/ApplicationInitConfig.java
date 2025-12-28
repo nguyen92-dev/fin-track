@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import top.nguyennd.expense.users.AppRoleRepository;
 import top.nguyennd.expense.users.AppUserRepository;
-import top.nguyennd.expense.users.entity.AppRole;
-import top.nguyennd.expense.users.entity.AppUser;
+import top.nguyennd.expense.users.entities.AppRole;
+import top.nguyennd.expense.users.entities.AppUser;
 
 @Configuration
 @RequiredArgsConstructor
