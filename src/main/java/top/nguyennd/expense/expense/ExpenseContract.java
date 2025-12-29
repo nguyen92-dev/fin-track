@@ -1,6 +1,5 @@
 package top.nguyennd.expense.expense;
 
-import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedModel;
@@ -22,7 +21,7 @@ import top.nguyennd.restsqlbackend.abstraction.pagedlist.FilterReqDto;
 
 @RequestMapping("/api/expenses")
 @Validated
-public interface IExpenseContract {
+public interface ExpenseContract {
 
   @PostMapping()
   ResponseEntity<BaseResponse<ExpenseResDto>> addExpense(@RequestBody @Valid ExpenseReqDto reqDto);

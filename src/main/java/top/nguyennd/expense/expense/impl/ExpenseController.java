@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-import top.nguyennd.expense.expense.IExpenseContract;
+import top.nguyennd.expense.expense.ExpenseContract;
 import top.nguyennd.expense.expense.IExpenseService;
 import top.nguyennd.expense.expense.dto.ExpenseReqDto;
 import top.nguyennd.expense.expense.dto.ExpenseResDto;
@@ -19,7 +19,7 @@ import static top.nguyennd.restsqlbackend.abstraction.exception.BusinessExceptio
 @RestController
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
-public class ExpenseController implements IExpenseContract {
+public class ExpenseController implements ExpenseContract {
 
   IExpenseService expenseService;
 
