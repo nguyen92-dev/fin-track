@@ -12,16 +12,16 @@ import lombok.experimental.SuperBuilder;
 import top.nguyennd.restsqlbackend.abstraction.entity.AbstractEntity;
 
 @EqualsAndHashCode(callSuper = true)
-//@Entity
-//@Table(name = "expense_categories")
+@Entity
+@Table(name = "expense_categories")
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ExpenseCategories extends AbstractEntity {
-//  @Column(name = "name", unique = true, nullable = false)
-//  String name;
-//
-//  @Column(name = "description")
-//  String description;
+public class ExpenseCategory extends AbstractEntity {
+  @Column(name = "name", unique = true, nullable = false)
+  String name;
+
+  @Column(name = "description")
+  String description;
 }

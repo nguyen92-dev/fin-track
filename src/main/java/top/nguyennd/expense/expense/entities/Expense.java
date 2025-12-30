@@ -4,6 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -28,7 +30,7 @@ public class Expense extends AbstractEntity {
   @Column(name = "expense_date")
   LocalDate expenseDate;
 
-  @Column(name = "expense_category_id")
+  @Column(name = "expense_category_id", nullable = false)
   Long categoryId;
 
   @Column(name = "amount")
@@ -46,4 +48,9 @@ public class Expense extends AbstractEntity {
 
   @Column(name = "payment_by")
   String paymentBy;
+
+  @ManyToOne()
+  @JoinColumn(name = "expense_category_id", referencedColumnName = "id",
+  insertable = false, updatable = false)
+  ExpenseCategory category;
 }

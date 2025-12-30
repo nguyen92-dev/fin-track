@@ -23,7 +23,7 @@ public class ExpenseReqDto {
   @NotNull(message = "Expense date must not be null")
   LocalDate expenseDate;
   @NotNull(message = "Category ID must not be null")
-  Integer categoryId;
+  Long categoryId;
   @NotNull(message = "Amount must not be null")
   @Min(value = 1000, message = "Amount must be at least 1000")
   BigDecimal amount;

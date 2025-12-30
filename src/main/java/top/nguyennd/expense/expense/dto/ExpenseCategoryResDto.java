@@ -7,24 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 import top.nguyennd.expense.abstracts.AuditedDto;
-import top.nguyennd.expense.common.enums.PaymentMethod;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ExpenseResDto extends AuditedDto {
+public class ExpenseCategoryResDto extends AuditedDto {
   Long id;
-  LocalDate expenseDate;
-  Long categoryId;
-  BigDecimal amount;
-  String details;
-  String address;
-  PaymentMethod paymentMethod;
-  String paymentBy;
-  ExpenseCategoryResDto category;
+  String name;
+  String description;
 }

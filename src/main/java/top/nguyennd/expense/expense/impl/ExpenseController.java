@@ -14,6 +14,8 @@ import top.nguyennd.expense.expense.dto.ExpenseResDto;
 import top.nguyennd.restsqlbackend.abstraction.dto.BaseResponse;
 import top.nguyennd.restsqlbackend.abstraction.pagedlist.FilterReqDto;
 
+import java.net.URI;
+
 import static top.nguyennd.restsqlbackend.abstraction.exception.BusinessException.notFound;
 
 @RestController
@@ -26,8 +28,13 @@ public class ExpenseController implements ExpenseContract {
   @Override
   public ResponseEntity<BaseResponse<ExpenseResDto>> addExpense(ExpenseReqDto reqDto) {
     ExpenseResDto result = expenseService.addExpense(reqDto);
-    var response = BaseResponse.buildSuccess(result);
-    return ResponseEntity.ok(response);
+    URI location = URI.create("/api/expenses/" + result.getId());
+    var response = BaseResponse.<ExpenseResDto>builder()
+        .status(201)
+        .message("created successfully")
+        .data(result)
+        .build();
+    return ResponseEntity.created(location).body(response);
   }
 
   @Override
